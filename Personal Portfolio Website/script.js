@@ -83,3 +83,26 @@ contador=0;
         }
     });
 });
+var element = document.getElementById('bot');
+var chat = document.getElementById('dialogo');
+var temporizador=window.setInterval(posicionBot,100,element);
+
+var pup=10;
+var xp=false;
+function posicionBot(elemento){
+if(pup<18&&xp==false){
+pup+=1;
+ elemento.style.bottom=pup+"px";
+}else {
+xp=true;} 
+if(pup>10&&xp==true)
+{ 
+pup-=1;
+elemento.style.bottom=pup+"px";}else{xp=false;}
+}
+function bigImg(){
+chat.style.display="inline";
+}
+function normalImg(){
+chat.style.display="none";
+}

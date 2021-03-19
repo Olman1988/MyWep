@@ -9,6 +9,7 @@
 }
 html{
     scroll-behavior: smooth;
+min-width:300px;
 }
 
 /* custom scroll bar */
@@ -179,6 +180,45 @@ width:100%;
 .scroll-up-btn:hover{
     filter: brightness(90%);
     opacity:80%;
+}
+.bot{
+z-index:10000;
+position: fixed;
+left: 30px;
+bottom: 20px;
+}
+.bot .boximg{
+background: white;
+border-radius: 50%;
+overflow:hidden;
+cursor:pointer;
+height: 45px;
+width: 42px;
+display:flex;
+justify-content:center;
+
+}
+.bot .boxdialogo {
+display:none;
+}
+.bot .boxdialogo .dialogo {
+box-shadow: 0px 70px 20px -30px rgba(0, 0, 0, 0.5), 0px 0px 0px 0px rgba(0, 0, 0, 0.19);
+background-color:white;
+width: 150px;
+height:50px;
+border-radius:10px;
+padding:10px;
+margin-bottom:10px;
+margin-left:30px;
+transition: all 0.3s ease;
+
+
+}
+.bot img{
+width:70px;
+height:70px;
+padding:3px;
+margin-top:5px;
 }
 
   
@@ -373,6 +413,9 @@ font-weight:700;
 width:50%;
 color:white;
 }
+.serv-content .card1 .disminuir p{
+font-size:12px;
+}
 
 .services .serv-content .card1 .texto{
 width:70%
@@ -431,6 +474,7 @@ color:#fff;
 
 .skills .title::after{
     content: "¿Qué habilidades poseo?";
+	
 }
 .skills .skills-content .column{
     width: calc(50% - 30px);
@@ -592,7 +636,7 @@ z-index:100;
 
 /* contact section styling */
 .contact .title::after{
-    content: "get in touch";
+    content: "";
 }
 .contact .contact-content .column{
     width: calc(50% - 30px);
@@ -607,6 +651,10 @@ z-index:100;
 }
 .contact .contact-content .left .icons{
     margin: 10px 0;
+}
+.contact .contact-content .left .img_contact{
+width:25px;
+margin-right:10px;
 }
 .contact .contact-content .row{
     display: flex;
@@ -808,9 +856,10 @@ width:350px;
  background-size:cover;
 }
 .services .max-width .serv-content .card1{
-width:400px;
-
-
+width:550px;
+height:350px;
+margin:auto;
+margin-top:20px;
 }
 
 }
@@ -856,6 +905,31 @@ align-items:center;
         width: 100%;
     }
 }
+@media(max-width:580px){
+.serv-content .card1{
+overflow:hidden;
+}
+.serv-content .card1 .texto{
+position:relative;
+margin-left:-18%;
+right:100px;
+}
+.serv-content .card1:hover .imgBx{
+width:100%;
+height:100%;
+left:0;
+top:-100%;
+transition:0.5s ease-in-out;
+background:crimson;
+}
+}
+
+@media(max-width:531px){
+.skills .title::after{
+    content: "";
+	
+}
+}
 
 @media (max-width: 500px) {
 
@@ -887,16 +961,18 @@ align-items:center;
 .services .services_div .serv-content .card1{
 width:350px;
 }
-
-@media (max-width: 376px) {
-.services .serv-content {
-width:300px;
-}
+@media(max-width:414px){
 .services .title::after,
 .teams .title::after{
     background: #111;
     content: "";
 }
+}
+@media (max-width: 376px) {
+.services .serv-content {
+width:300px;
+}
+
 }
 
 
