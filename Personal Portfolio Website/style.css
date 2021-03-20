@@ -12,6 +12,7 @@ html{
 min-width:300px;
 }
 
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -78,61 +79,67 @@ section .title::after{
     transform: translateX(-50%);
 }
 
-/* navbar styling */
-.navbar{
+/* navbr styling */
+.navbr{
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 30px 0;
+    padding: 25px 0;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
+
 }
-.navbar.sticky{
+.navbr.sticky{
     padding: 15px 0;
-    background: crimson;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(220,20,60,0.9) 0%, rgba(220,20,60,0.9) 100%);
+max-height:100px;
 }
-.navbar .max-width{
+.navbr .max-width{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
-.navbar .logo a{
+.navbr .logo a{
     color: #fff;
     font-size: 35px;
     font-weight: 600;
+text-decoration:none;
 }
-.navbar .logo a span{
+.navbr .logo a span{
     color: crimson;
     transition: all 0.3s ease;
 }
-.navbar.sticky .logo a span{
+.navbr.sticky .logo a span{
     color: #fff;
 }
-.navbar .menu li{
+.navbr .menu li{
     list-style: none;
     display: inline-block;
 	padding:20px;
 	transition: all 0.3s ease;
 
 }
-.navbar .menu li:hover{
+.navbr .menu li:hover{
     background-color:crimson;
 	transform: scale(1.5);
 	
 }
-.navbar .menu li a{
+.navbr .menu li a{
     display: block;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
    // margin-left: 25px;
     transition: color 0.3s ease;
+text-decoration:none;
 }
-.navbar .menu li a:hover{
+.navbr .menu li a:hover{
     //color: crimson;
 	
 }
-.navbar.sticky .menu li a:hover{
+.navbr.sticky .menu li a:hover{
     color: #fff;
 }
 
@@ -202,16 +209,29 @@ justify-content:center;
 display:none;
 }
 .bot .boxdialogo .dialogo {
-box-shadow: 0px 70px 20px -30px rgba(0, 0, 0, 0.5), 0px 0px 0px 0px rgba(0, 0, 0, 0.19);
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 background-color:white;
 width: 150px;
-height:50px;
+height:100px;
 border-radius:10px;
 padding:10px;
 margin-bottom:10px;
 margin-left:30px;
 transition: all 0.3s ease;
 
+
+}
+.bot .boxdialogo .nuevo_dialogo{
+box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+background-color:white;
+width: 300px;
+height:300px;
+border-radius:10px;
+padding:10px;
+margin-bottom:10px;
+margin-left:30px;
+transition: all 0.3s ease;
+font-family: 'Ubuntu', sans-serif;
 
 }
 .bot img{
@@ -793,7 +813,7 @@ width:350px;
     .menu-btn i.active:before{
         content: "\f00d";
     }
-    .navbar .menu{
+    .navbr .menu{
         position: fixed;
         height: 100vh;
         width: 100%;
@@ -804,13 +824,13 @@ width:350px;
         padding-top: 80px;
         transition: all 0.3s ease;
     }
-    .navbar .menu.active{
+    .navbr .menu.active{
         left: 0;
     }
-    .navbar .menu li{
+    .navbr .menu li{
         display: block;
     }
-    .navbar .menu li a{
+    .navbr .menu li a{
         display: inline-block;
         margin: 20px 0;
         font-size: 25px;
