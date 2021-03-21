@@ -1,3 +1,9 @@
+//loader
+$(window).on("load",function(){
+$("#preloader").fadeOut("slow");
+});
+
+//scroll
 $(document).ready(function(){
     $(window).scroll(function(){
 
@@ -88,7 +94,7 @@ contador=0;
 var element_bot = document.getElementById('bot');
 var chat = document.getElementById('dialogo');
 var temporizador=window.setInterval(posicionBot,100,element_bot);
-
+var parrafo_dialogo = document.getElementById('parrafo_dialogo');
 var pup=10;
 
 //Movimiento
@@ -112,7 +118,7 @@ chat.style.display="inline";
 function normalImg(){
 chat.style.display="none";
 }
-var dialogo="<div class='nuevo_dialogo' id='nuevo_dialogo'><p id='parrafo_dialogo' class='' >¿Puede indicarme la siguiente información para poder ayudarle?</p>"+
+var dialogo="<div class='nuevo_dialogo' id='nuevo_dialogo' style='padding:15px'><p id='parrafo_dialogo' class='' >¿Puede indicarme la siguiente información para poder ayudarle?</p>"+
 "<label for='nombre_usuario'>Nombre:</label></br>"+
 "<input type='text' value='nombre' id='nombre_usuario'></br>"+
 "<label for='email' class='btn primary'>Correo:</label></br>"+
@@ -126,42 +132,55 @@ $("#img_dialogo").attr("onmouseout","");
 $("#dialogo").css("height","300px");
 clearInterval(temporizador);
 click_dialogo=true;
+parrafo_dialogo.style.display="none";
 }else{
 $("#nuevo_dialogo").remove();
 $("#img_dialogo").attr("onmouseout","normalImg()");
 click_dialogo=false;
+parrafo_dialogo.style.display="inline";
 temporizador=window.setInterval(posicionBot,100,element_bot);
 }
 });
-
+var datos=[];
 function fn_enviar(info){
 var select=info.value;
 if(select==1){
-var nombre=$("#nombre_usuario").val();
-var email=$("#email_usuario").val();
-$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo'><p id='parrafo_dialogo' class='' >¡Gracias por la información "+nombre+"!"+
+nombre=$("#nombre_usuario").val();
+email=$("#email_usuario").val();
+datos={
+"nombre":nombre,
+"email":email
+};
+
+console.log(datos);
+$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo'style='padding:15px'><p id='parrafo_dialogo' class='' >¡Gracias por la información "+nombre+"!"+
 "</br>Por favor realice la selección de lo que más se ajusta a sus requerimientos:</p><br>"+
-"<input type='checkbox' id='empresa' name='empresa' value='Somos una empresa'><label> Somos una empresa</label></br>"+
-"<input type='checkbox' id='persona' name='persona física' value='Soy una persona física'><label> Soy una persona física</label></br>"+
-"<input type='checkbox' id='persona' name='estudiante' value='Soy estudiante'><label> Soy estudiante</label></br>"+
+"<input type='radio' id='empresa' name='tipo' value='Somos una empresa'><label>   Somos una empresa</label></br>"+
+"<input type='radio' id='persona' name='tipo' value='Soy una persona física'><label>   Soy una persona física</label></br>"+
+"<input type='radio' id='persona' name='tipo' value='Soy estudiante'><label>   Soy estudiante</label></br>"+
 "<button style='margin-top:10px'type='button' id='btn_enviar_dialogo' value='2' onclick='fn_enviar(this)' class='btn btn-success'>Enviar</button>"+
 "</div>");
 }
 if(select==2){
-var nombre=$("input").val();
-$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo'><p id='parrafo_dialogo' class='' >¡Gracias por la información "+nombre+"!"+
+tipo=$('input:radio[name=tipo]:checked').val();
+datos['tipo']=tipo;
+$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo' style='padding:15px'><p id='parrafo_dialogo' class='' >¡Gracias por la información "+nombre+"!"+
 "</br>¿Cuál es el motivo de su consulta?</p><br>"+
-"<input type='checkbox' id='empresa' name='empresa' value='Cotizar'><label>Cotización</label></br>"+
-"<input type='checkbox' id='persona' name='persona física' value='Soy una persona física'><label>Trabajo en curso</label></br>"+
-"<input type='checkbox' id='persona' name='estudiante' value='Soy estudiante'><label>Solicitud para realizar proyecto</label></br>"+
+"<input type='radio' id='empresa' name='solicitud' value='Cotizar'><label>  Cotización</label></br>"+
+"<input type='radio' id='persona' name='solicitud' value='Trabajo en curso'><label>  Trabajo en curso</label></br>"+
+"<input type='radio' id='persona' name='solicitud' value='Solicitud de proyecto'><label>  Solicitud para realizar proyecto</label></br>"+
 "<button style='margin-top:10px'type='button' id='btn_enviar_dialogo' value='3' onclick='fn_enviar(this)' class='btn btn-success'>Enviar</button>"+
 "</div>");
 }
 if(select==3){
-$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo'><p id='parrafo_dialogo' class='' >¡Gracias por la información en un momento le daremos respuesta!</p></div>");
+solicitud=$('input:radio[name=solicitud]:checked').val();
+datos['solicitud']=solicitud;
+$("#nuevo_dialogo").replaceWith("<div class='nuevo_dialogo' id='nuevo_dialogo' ><p id='parrafo_dialogo' class='' >¡Gracias por la información en un momento le daremos respuesta!</p></div>");
 
 }
+
 }
+
 
 
 

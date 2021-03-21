@@ -11,22 +11,50 @@ html{
     scroll-behavior: smooth;
 min-width:300px;
 }
+/* loader*/
 
+#preloader{
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:white;
+z-index:1000;
+
+}
+#loader{
+width:300px;
+height:300px;
+position:absolute;
+top:50%;
+left:50%;
+margin-left:-150px;
+margin-top:-100px;
+}
+#loader img{
+width:100%;
+}
 
 /* custom scroll bar */
+
 ::-webkit-scrollbar {
     width: 10px;
 }
-::-webkit-scrollbar-track {
+
+::-webkit-scrollbar-track  {
     background: #f1f1f1;
 }
-::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-thumb{
     background: #888;
 }
+
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
 
 /* all similar content styling codes */
 section{
@@ -189,7 +217,7 @@ width:100%;
     opacity:80%;
 }
 .bot{
-z-index:10000;
+z-index:900;
 position: fixed;
 left: 30px;
 bottom: 20px;
