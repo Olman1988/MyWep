@@ -372,16 +372,16 @@ background-position:right;
 }
 
 /* services section styling */
-.services, .teams{
+.services, .projects{
     color:#fff;
     background: #111;
 }
 .services .title::before,
-.teams .title::before{
+.projects .title::before{
     background: #fff;
 }
 .services .title::after,
-.teams .title::after{
+.projects .title::after{
     background: #111;
     content: "¿Qué puedo ofrecer?";
 }
@@ -619,68 +619,112 @@ z-index:100;
 }
 
 
-/* teams section styling */
-.teams .title::after{
-    content: "who with me";
+/* projects section styling */
+.projects .max-width{
+display:flex;
+justify-content:center;
+
+
 }
-.teams .carousel .card{
-    background: #222;
-    border-radius: 6px;
-    padding: 25px 35px;
-    text-align: center;
-    overflow: hidden;
-    transition: all 0.3s ease;
+.projects .title::after{
+    content: "";
 }
-.teams .carousel .card:hover{
+.projects .container{
+position :relative;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+padding:20px;
+margin:auto;
+}
+.container .card {
+position:relative;
+width:340px;
+height:250px;
+background:#fff;
+margin:30px 0px;
+padding:20px 15px;
+display:flex;
+flex-direction:column;
+background-color: rgba(220, 20, 60, 0.7);
+box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+transition: 0.3s ease-in-out;
+
+}
+.container .card:hover{
+height:450px;
+border-radius:50%;
+}
+.container .card .imagen_box{
+position:relative;
+width:80%;
+height:260px;
+top:-60px;
+min-width:230px;
+margin: auto;
+ box-shadow: 0px 0px 10px 0px black;
+background: url("images/web.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+border: 5px solid white;
+border-radius:10px;
+transition: 0.3s ease-in-out;
+transform-style: preserve-3d;
+transform: rotateY(180deg);
+overflow:hidden;
+}
+.container .card:hover .imagen_box{
+transform:scale(1.2);
+
+}
+.container .card .content_card{
+position:relative;
+margin-top: -200px;
+text-align:center;
+color:#111;
+visibility:hidden;
+opacity:0;
+transition:0.3s ease-in-out;
+text-shadow: 2px 2px 2px black;
+}
+
+.container .card:hover .content_card{
+visibility:visible;
+opacity:1;
+margin-top: 0;
+/**transition-delay:0.3s;**/
+color:white;
+background: rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+box-shadow: 2px 2px 2px white;
+border-radius:10px;
+height:260px;
+}
+.container .card:hover .content_card p{
+font-size:15px;
+}
+.container .card .content_card .button button{
+    width: 80%;
+    height: 100%;
+    border: 2px solid crimson;
     background: crimson;
-}
-.teams .carousel .card .box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.teams .carousel .card:hover .box{
-    transform: scale(1.05);
-}
-.teams .carousel .card .text{
-    font-size: 25px;
+    color: #fff;
+    outline: none;
+    font-size: 20px;
     font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-.teams .carousel .card img{
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid crimson;
+    border-radius: 6px;
+    cursor: pointer;
     transition: all 0.3s ease;
+margin-bottom:5px;
 }
-.teams .carousel .card:hover img{
-    border-color: #fff;
+.container .card .content_card .button button:hover{
+    color: crimson;
+    background: none;
 }
-.owl-dots{
-    text-align: center;
-    margin-top: 20px;
-}
-.owl-dot{
-    height: 13px;
-    width: 13px;
-    margin: 0 5px;
-    outline: none!important;
-    border-radius: 50%;
-    border: 2px solid crimson!important;
-    transition: all 0.3s ease;
-}
-.owl-dot.active{
-    width: 35px;
-    border-radius: 14px;
-}
-.owl-dot.active,
-.owl-dot:hover{
-    background: crimson!important;
-}
+
+
 
 /* contact section styling */
 .contact .title::after{
@@ -805,7 +849,17 @@ footer span a:hover{
         margin-left: 0px;
     }
 }
+@media(max-width:1200px){
+.projects .max-width{
+flex-direction:column;
 
+}
+.projects .container{
+justify-content:center;
+}
+.container .card {
+width:500px;}
+}
 @media (max-width: 1104px) {
     .about .about-content .left img{
         height: 350px;
@@ -813,6 +867,10 @@ footer span a:hover{
     }
 .services .max-width .serv-content .card1{
 width:350px;
+
+}
+.projects .max-width{
+flex-direction:column;
 
 }
 }
@@ -1009,17 +1067,23 @@ background:crimson;
 .services .services_div .serv-content .card1{
 width:350px;
 }
-@media(max-width:414px){
-.services .title::after,
-.teams .title::after{
-    background: #111;
-    content: "";
 }
+@media(max-width:414px){
+.services .title::after{
+   content:"";
+}
+}
+@media(max-width:390px){
+.imagen_box{
+margin-left:-10px;
+}
+
 }
 @media (max-width: 376px) {
 .services .serv-content {
 width:300px;
 }
+.
 
 }
 
@@ -1032,5 +1096,9 @@ height:50%;
 }
 .services .services_div .serv-content .card1{
 width:300px;
+}
+.container .card {
+
+padding:0;
 }
 }
